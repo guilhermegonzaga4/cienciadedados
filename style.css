@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --bg-color: #4379F2;
+    --primary-color: #FFEB00;
+    --secondary-color: #117554;
+    --tipo-fonte: "Genos", sans-serif;
+
+}
+body{
+    background-color: var(--bg-color);
+    color:var(--primary-color);
+    font-family: var(--tipo-fonte);
+    height: 100vh; /*altura em porcentagem do body*/
+    margin:0; /*espaço externo da borda geral*/
+}
+header{
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 1px;/*espaço interno do header*/
+}
+h1{
+    font-size: 2rem;/*tamanho da letra, 
+                    medida rem do :root*/
+    color:var(--bg-color); /*cor da letra*/
+    font-weight: 700; /*weight define o negrito*/
+}
+nav{
+    display: flex; /*área flexível navegável*/
+    justify-content: center; /*justificar conteúdo 
+                            ao centro*/
+    font-weight: 400; /*negrito*/
+}
+nav a{ /*link estático*/
+    text-decoration: none; /*tirar o sublinhado*/
+    color:var(--bg-color); 
+    margin:0 2rem 1rem 0rem; /*espaço externo cima, 
+                            esquerda, baixo, direita*/
+    font-size: 1.2rem;  /*tamanho da letra 
+                        equivalente a 18px*/
+}
+nav a:hover{ /*link interativo ao passar o mouse*/
+    text-decoration: underline; /*insere o sublinhado*/
+    transform: scale(0.90); /* diminui o tamanho do texto em 90%*/
+    transition: transform 0.1s; /*tempo da transformação*/
+}
+
+.grafico {
+    margin-top: 3rem;
+}
+
+.graficos-container {
+    margin: 5rem;
+}
+
+.graficos-container__texto {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 2rem;
+    border: var(--secondary-color) solid 2px;
+}
+
+span {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+footer{
+    display:flex; /*area do rodapé flexível*/
+    align-items: center; /*alinhamento de itens
+                            ao centro*/
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    width: 100%; /*largura ocupando 100% do rodapé*/
+    height: 3rem; /*altura 3x a medida do root*/
+    margin-top: 2rem; /*altura do topo da margem
+                        externa do rodapé em 2 rem*/
+}
