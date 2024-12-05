@@ -1,5 +1,5 @@
 import { getCSS, tickConfig } from "./common.js"
-async function quantidadeUsuariosPoresportes() {
+async function quantidadeDeEsportes() {
     const url = 'https://raw.githubusercontent.com/guilhermegonzaga4/cienciadedados/refs/heads/main/base-de-dados/esportes-mais-praticados.json
     const res = await fetch(url)
     const dados = await res.json()
@@ -17,7 +17,7 @@ async function quantidadeUsuariosPoresportes() {
         }
     ]
 
-    const laytout = {
+    const layout = {
         plot_bgcolor: getCSS('--bg-color'),
         paper_bgcolor: getCSS('--bg-color'),
         title: {
