@@ -1,18 +1,20 @@
-const url = 'https://raw.githubusercontent.com/romulopena/ciencia-de-dados/refs/heads/main/basededados/educacao-dados-globais.json'
+const url = https://raw.githubusercontent.com/guilhermegonzaga4/cienciadedados/refs/heads/main/base-de-dados/esportes-dados-globais.json
 
 async function visualizarInformacoesGlobais(){
     const res = await fetch (url)
     const dados = await res.json()
-    const pessoasComAcesso = (dados.total_pessoas_com_acesso_a_educacao / 1e9)
+    const pessoasPraticandoEsporte = (dados.total_pessoas_que_praticam_esportes_regularmente / 1e9)
     const pessoasNoMundo = (dados.total_pessoas_mundo / 1e9)
-    const horas = parseInt(dados.tempo_medio_dia_estudando)
-    const pessoasEstudando = ((pessoasComAcesso / pessoasNoMundo) * 100).toFixed(2)
+    const horas = parseInt(dados.tempo_medio_semana_praticando_esportes)
+    const minutos = Math.round((dados.tempo_medio_semana_praticando_esportes - horas) * 100)
+    //const porcentagemPraticandoEsportes = ((pessoasPraticandoEsportes / pessoasNoMundo ) * 100).toFixed(2)
+
     const paragrafo = document.createElement('p')
     paragrafo.classList.add('graficos-container__texto')
-    paragrafo.innerHTML = `Você sabia que o mundo tem ${dados.total_pessoas_mundo} de pessoas e que aproximadamente ${dados.total_pessoas_conectadas} estão conectadas em alguma rede social e passam em média ${dados.tempo_medio} horas conectadas.`
-    
+    paragrafo.innerHTML = `Você sabia que o mundo tem <span>${pessoasNoMundo} bilhões</span> de pessoas e que aproximadamente <span>${pessoasTrabalhando} bilhões</span> estão praticando esportes em alguma ocupação e passam em média <span>${horas} horas</span> e <span>${minutos} minutos</span> Praticando esportes.<br>Porém, ainda existe aproximadamente <span>${porcentagemPraticandoEsportes}%</span> de pessoas praticando esportes .`
+
     const container = document.getElementById('graficos-container')
     container.appendChild(paragrafo)
 }
 
-visualizarInformacoesGlobais();
+vizualizarInformacoesGlobais()

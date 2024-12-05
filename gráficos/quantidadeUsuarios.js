@@ -1,40 +1,38 @@
 import { getCSS, tickConfig } from "./common.js"
-async function quantidadeUsuarios() {
-    const url = 'https://raw.githubusercontent.com/romulopena/ciencia-de-dados/refs/heads/main/basededados/educacao-etapas-de-ensino.json'
+async function quantidadeUsuariosPoresportes() {
+    const url = 'https://raw.githubusercontent.com/guilhermegonzaga4/cienciadedados/refs/heads/main/base-de-dados/esportes-mais-praticados.json
     const res = await fetch(url)
     const dados = await res.json()
-    const nomeDasInstituicoes = Object.keys(dados)
-    const quantidadeAlunos = Object.values(dados)
-    
+    const nomeDosEsportes = Object.keys(dados)
+    const quantidadeDeJogadores = Object.values(dados)
+
     const data = [
         {
-            x: nomeDasInstituicoes,
-            y: quantidadeAlunos,
+            x: nomeDosEsportes,
+            y: quantidadeDeEsportes,
             type: 'bar',
             marker: {
                 color: getCSS('--primary-color')
             }
-
         }
     ]
-    const layout = {
+
+    const laytout = {
         plot_bgcolor: getCSS('--bg-color'),
         paper_bgcolor: getCSS('--bg-color'),
         title: {
-            text: 'Instituições com mais alunos no mundo',
+            text: 'EsportesComMaisJogadores',
             x: 0,
             font: {
                 color: getCSS('--primary-color'),
-                family: getCSS('--font'),
-                size: 30
+                size: 30,
+                font: getCSS('--font')
             }
-
         },
         xaxis: {
             tickfont: tickConfig,
             title: {
-                text: 'Tipos de Instituições',
-                size: 20,
+                text: 'Nome dos Esportes',
                 font: {
                     color: getCSS('--secondary-color')
                 }
@@ -43,18 +41,18 @@ async function quantidadeUsuarios() {
         yaxis: {
             tickfont: tickConfig,
             title: {
-                text: 'bilhões de alunos ativos',
-                size:20,
+                text: 'Bilhões de Jogadores Ativos',
                 font: {
                     color: getCSS('--secondary-color')
                 }
             }
         }
     }
+
     const grafico = document.createElement('div')
     grafico.className = 'grafico'
     document.getElementById('graficos-container').appendChild(grafico)
     Plotly.newPlot(grafico, data, layout)
-
 }
-quantidadeUsuarios();
+
+quantidadeDeEsportes()
