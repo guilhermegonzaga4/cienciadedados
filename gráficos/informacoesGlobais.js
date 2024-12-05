@@ -7,7 +7,7 @@ async function visualizarInformacoesGlobais(){
     const pessoasNoMundo = (dados.total_pessoas_mundo / 1e9)
     const horas = parseInt(dados.tempo_medio_semana_praticando_esportes)
     const minutos = Math.round((dados.tempo_medio_semana_praticando_esportes - horas) * 100)
-    //const porcentagemPraticandoEsportes = ((pessoasPraticandoEsportes / pessoasNoMundo ) * 100).toFixed(2)
+    const porcentagemPraticandoEsportes = ((pessoasPraticandoEsportes / pessoasNoMundo ) * 100).toFixed(2)
 
     const paragrafo = document.createElement('p')
     paragrafo.classList.add('graficos-container__texto')
